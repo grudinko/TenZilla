@@ -1,0 +1,12 @@
+# Исключить node_modules и другие файлы генератора шрифтов из компиляции Arduino IDE
+src/fonts/node_modules/
+src/fonts/_node_modules/
+src/fonts/package.json
+src/fonts/package-lock.json
+src/fonts/*.mjs
+src/fonts/*.py
+src/fonts/*.bat
+src/fonts/*.md
+src/fonts/*.txt
+src/fonts/*.woff2
+src/fonts/*.ttf

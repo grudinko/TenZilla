@@ -1,0 +1,46 @@
+═══════════════════════════════════════════════════════════════
+  УСТАНОВКА И ГЕНЕРАЦИЯ FONTAWESOME ШРИФТОВ
+═══════════════════════════════════════════════════════════════
+
+ПРОБЛЕМА: npm не может найти версию пакета
+
+РЕШЕНИЕ: Выполните команды вручную в командной строке:
+
+1. Откройте командную строку (cmd) или PowerShell
+
+2. Перейдите в папку:
+   cd "c:\Users\grudi\OneDrive\Документы\Arduino\Tenzilla\src\fonts"
+
+3. Установите пакет (попробуйте одну из команд):
+   
+   Вариант A (без версии):
+   npm install lv_font_conv --save-dev
+   
+   Вариант B (с указанием версии):
+   npm install lv_font_conv@1.5.3 --save-dev
+   
+   Вариант C (глобально):
+   npm install -g lv_font_conv
+
+4. После установки запустите генерацию:
+   npm run gen:fa
+   
+   ИЛИ вручную:
+   node_modules\.bin\lv_font_conv.cmd --font "fa-solid-900.ttf" -r 0xF0AA -r 0xF0AB -r 0xF1EB -r 0xF28D --size 14 --bpp 4 --format lvgl --no-compress -o "lv_font_fontawesome_14.c"
+   
+   node_modules\.bin\lv_font_conv.cmd --font "fa-solid-900.ttf" -r 0xF0AA -r 0xF0AB -r 0xF1EB -r 0xF28D --size 48 --bpp 4 --format lvgl --no-compress -o "lv_font_fontawesome_48.c"
+
+═══════════════════════════════════════════════════════════════
+  АЛЬТЕРНАТИВА: Онлайн-конвертер (РЕКОМЕНДУЕТСЯ)
+═══════════════════════════════════════════════════════════════
+
+Если npm не работает, используйте онлайн-конвертер:
+
+1. Откройте: https://lvgl.io/tools/fontconverter
+2. Загрузите: fa-solid-900.ttf
+3. Name: fontawesome_14, Size: 14, Bpp: 4
+4. Range: 0xF0AA, 0xF0AB, 0xF1EB, 0xF28D (по одному, нажимая Add)
+5. Convert → замените lv_font_fontawesome_14.c
+6. Повторите для 48px (Name: fontawesome_48, Size: 48)
+
+═══════════════════════════════════════════════════════════════

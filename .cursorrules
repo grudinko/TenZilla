@@ -1,0 +1,65 @@
+# TenZilla Project Rules
+
+## Version Management
+**ВАЖНО: При каждом изменении кода ОБЯЗАТЕЛЬНО обновлять версию!**
+
+### Правила нумерации версий (Semantic Versioning):
+- **MAJOR** (старшая версия) - увеличивается при несовместимых изменениях API или крупных архитектурных изменениях
+- **MINOR** (младшая версия) - увеличивается при добавлении новой функциональности с обратной совместимостью
+- **PATCH** (патч-версия) - увеличивается при исправлении багов и ошибок
+- **BUILD** (номер сборки) - увеличивается при ЛЮБОМ изменении кода
+
+### Порядок обновления версии:
+
+1. Откройте файл `src/TenZillaVersion.h`
+2. Определите тип изменения:
+   - **Исправление бага** → увеличить `TENZILLA_VERSION_PATCH` и сбросить BUILD на 0 (или увеличить на 1)
+   - **Новая функциональность** → увеличить `TENZILLA_VERSION_MINOR`, сбросить PATCH на 0, увеличить BUILD
+   - **Несовместимые изменения** → увеличить `TENZILLA_VERSION_MAJOR`, сбросить MINOR и PATCH на 0, увеличить BUILD
+3. Увеличить `TENZILLA_VERSION_BUILD` на 1 (всегда)
+4. Обновить `TENZILLA_RELEASE_NUMBER` в формате `R{MAJOR}.{MINOR}.{PATCH}.{BUILD}`
+5. Обновить `TENZILLA_RELEASE_DATE` на текущую дату (формат: DD.MM.YYYY)
+
+### Примеры:
+
+**Исправление бага:**
+```cpp
+// Было: R2.1.0.49
+#define TENZILLA_VERSION_PATCH    1  // Было 0, стало 1
+#define TENZILLA_VERSION_BUILD    50  // Было 49, стало 50
+#define TENZILLA_RELEASE_NUMBER    "R2.1.1.50"
+#define TENZILLA_RELEASE_DATE      "27.01.2026"
+```
+
+**Добавление новой функциональности:**
+```cpp
+// Было: R2.1.1.50
+#define TENZILLA_VERSION_MINOR    2  // Было 1, стало 2
+#define TENZILLA_VERSION_PATCH    0  // Сброшено на 0
+#define TENZILLA_VERSION_BUILD    51  // Было 50, стало 51
+#define TENZILLA_RELEASE_NUMBER    "R2.2.0.51"
+#define TENZILLA_RELEASE_DATE      "27.01.2026"
+```
+
+**Несовместимые изменения:**
+```cpp
+// Было: R2.2.0.51
+#define TENZILLA_VERSION_MAJOR    3  // Было 2, стало 3
+#define TENZILLA_VERSION_MINOR    0  // Сброшено на 0
+#define TENZILLA_VERSION_PATCH    0  // Сброшено на 0
+#define TENZILLA_VERSION_BUILD    52  // Было 51, стало 52
+#define TENZILLA_RELEASE_NUMBER    "R3.0.0.52"
+#define TENZILLA_RELEASE_DATE      "27.01.2026"
+```
+
+## Code Style
+- Используйте английские комментарии для кода
+- Используйте русские комментарии для пользовательских сообщений и документации
+- Следуйте существующему стилю форматирования
+
+## FontAwesome
+- FontAwesome шрифты должны быть включены в `TenZillaPins.h` если файлы шрифтов добавлены в проект
+- Используйте условную компиляцию `#if LV_FONT_FAXX_ENABLED` для поддержки fallback
+
+## UI Spacing
+- Индикаторы в правом верхнем углу должны иметь достаточные отступы (минимум 5-10 пикселей между элементами)

@@ -1,0 +1,17 @@
+# TenZilla: меньше памяти для SSL/TLS (Telegram, HTTPS)
+# После изменения — Sketch > Clean + полная пересборка.
+
+# mbedTLS: внутренняя RAM (внешняя для mbedTLS может давать сбои при отключённом PSRAM).
+# CONFIG_MBEDTLS_EXTERNAL_MEM_ALLOC is not set
+
+# Уменьшить буферы TLS с 16KB до 4KB (‑~24KB пик). Ответы Telegram < 4KB.
+CONFIG_MBEDTLS_SSL_IN_CONTENT_LEN=4096
+CONFIG_MBEDTLS_SSL_OUT_CONTENT_LEN=4096
+
+# Не хранить сертификат пира после handshake — экономия RAM.
+# CONFIG_MBEDTLS_SSL_KEEP_PEER_CERTIFICATE is not set
+
+# ESP-TLS: пропуск проверки сертификата (только для тестов). Экономит память при handshake.
+# В коде Telegram не задаём cert_pem.
+CONFIG_ESP_TLS_INSECURE=y
+CONFIG_ESP_TLS_SKIP_SERVER_CERT_VERIFY=y

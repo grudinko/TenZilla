@@ -1,0 +1,32 @@
+# Arduino / ESP32 build
+build/
+*.elf
+*.bin
+*.map
+*.hex
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Local backups (не пушить в репозиторий)
+backups/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archives
+*.7z
+*.zip
+*.rar
+
+# Logs
+*.log
+
+# Fonts generator (src/fonts/)
+src/fonts/node_modules/
+src/fonts/_node_modules/
+src/fonts/Montserrat-Medium.ttf

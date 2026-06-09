@@ -1,0 +1,11 @@
+{
+  "name": "tenzilla-fonts",
+  "private": true,
+  "scripts": {
+    "gen": "node gen_fonts.mjs",
+    "gen:fa": "node gen_fontawesome.mjs"
+  },
+  "devDependencies": {
+    "lv_font_conv": "^1.5.3"
+  }
+}
