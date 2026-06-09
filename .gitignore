@@ -25,6 +25,7 @@ desktop.ini
 
 # Logs
 *.log
+.cursor/hooks/auto-git-push.log
 
 # Fonts generator (src/fonts/)
 src/fonts/node_modules/
