@@ -738,9 +738,6 @@ void TenZillaScale::updateMotorPanelButtons() {
 #if MOTOR_BTN_UP_PIN < 0 && MOTOR_BTN_DOWN_PIN < 0
   return;
 #else
-  // Во время автопрограммы двигатель управляется только программой
-  if (TenZillaProgram::isRunning()) return;
-
   static bool panelMotorActive = false;
   static bool upStable = false;
   static bool downStable = false;
@@ -767,6 +764,21 @@ void TenZillaScale::updateMotorPanelButtons() {
 
   bool upPressed = debounceBtn(MOTOR_BTN_UP_PIN, upStable, upChangeMs);
   bool downPressed = debounceBtn(MOTOR_BTN_DOWN_PIN, downStable, downChangeMs);
+
+  // During auto-program: UP button stops the program (motor is controlled by program only)
+  if (TenZillaProgram::isRunning()) {
+    static bool upProgramStopLatched = false;
+    if (upPressed) {
+      if (!upProgramStopLatched) {
+        upProgramStopLatched = true;
+        TenZillaProgram::stopProgram(TenZillaProgram::STOP_REASON_MANUAL);
+        TenZillaProgram::beepShort();
+      }
+    } else {
+      upProgramStopLatched = false;
+    }
+    return;
+  }
 
   if (upPressed || downPressed) {
     if (!(upPressed && downPressed)) {

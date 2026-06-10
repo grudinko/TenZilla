@@ -7,17 +7,17 @@
  */
 
 #define TENZILLA_VERSION_MAJOR    2
-#define TENZILLA_VERSION_MINOR    11
-#define TENZILLA_VERSION_PATCH    16
-#define TENZILLA_VERSION_BUILD    166
+#define TENZILLA_VERSION_MINOR    12
+#define TENZILLA_VERSION_PATCH    0
+#define TENZILLA_VERSION_BUILD    167
 
 // Номер релиза (увеличивается при каждом запросе на изменение)
 // Формат: R{MAJOR}.{MINOR}.{PATCH}.{BUILD}
 // MAJOR - несовместимые изменения, MINOR - новая функциональность, PATCH - исправления багов, BUILD - любое изменение
-#define TENZILLA_RELEASE_NUMBER    "R2.11.16.166"
+#define TENZILLA_RELEASE_NUMBER    "R2.12.0.167"
 
 // Дата изменений (формат: DD.MM.YYYY)
-#define TENZILLA_RELEASE_DATE      "05.06.2026"
+#define TENZILLA_RELEASE_DATE      "10.06.2026"
 
 // Макрос для преобразования числа в строку
 #define STRINGIFY(x) #x
