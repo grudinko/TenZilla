@@ -32,10 +32,10 @@ void TenZillaBreakScreen_ui_create(lv_obj_t** out_screen, TenZillaBreakScreenUI*
   #define _LIM   "LIM:"
   #define _HINT  "Hold 2s for menu"
 
-  // Заголовок окна — крупный шрифт, алый
+  // Заголовок: BGR-дисплей — lv_color_make(b, g, r), не lv_color_hex(RGB)
   lv_obj_t* title = lv_label_create(screen);
   lv_label_set_text(title, _TITLE);
-  lv_obj_set_style_text_color(title, lv_color_hex(0xFF1744), 0);
+  lv_obj_set_style_text_color(title, lv_color_make(0, 0, 255), 0);  // алый (красный)
   lv_obj_set_style_text_font(title, _F30, 0);
   lv_obj_set_style_text_letter_space(title, 1, 0);
   lv_obj_align(title, LV_ALIGN_TOP_LEFT, 10, 10);

@@ -64,10 +64,10 @@ void TenZillaMainScreen_ui_create(lv_obj_t** out_screen, TenZillaMainScreenUI* o
   const int _Y2 = 110;
   const int _Y3 = 170;
 
-  // Заголовок окна — крупный шрифт, кислотно-зелёный
+  // Заголовок: BGR-дисплей — lv_color_make(b, g, r), не lv_color_hex(RGB)
   lv_obj_t* title = lv_label_create(screen);
   lv_label_set_text(title, _TITLE);
-  lv_obj_set_style_text_color(title, lv_color_hex(0x39FF14), 0);
+  lv_obj_set_style_text_color(title, lv_color_make(20, 255, 57), 0);  // кислотно-зелёный
   lv_obj_set_style_text_font(title, _F30, 0);
   lv_obj_set_style_text_letter_space(title, 1, 0);
   lv_obj_align(title, LV_ALIGN_TOP_LEFT, 10, 10);
