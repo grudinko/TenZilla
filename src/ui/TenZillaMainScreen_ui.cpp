@@ -64,11 +64,11 @@ void TenZillaMainScreen_ui_create(lv_obj_t** out_screen, TenZillaMainScreenUI* o
   const int _Y2 = 110;
   const int _Y3 = 170;
 
-  // Заголовок окна - увеличен и полужирный эффект через больший размер (левый угол)
+  // Заголовок окна — крупный шрифт, кислотно-зелёный
   lv_obj_t* title = lv_label_create(screen);
   lv_label_set_text(title, _TITLE);
-  lv_obj_set_style_text_color(title, lv_color_hex(0xFF8800), 0);
-  lv_obj_set_style_text_font(title, _F22, 0);
+  lv_obj_set_style_text_color(title, lv_color_hex(0x39FF14), 0);
+  lv_obj_set_style_text_font(title, _F30, 0);
   lv_obj_set_style_text_letter_space(title, 1, 0);
   lv_obj_align(title, LV_ALIGN_TOP_LEFT, 10, 10);
 
@@ -196,7 +196,7 @@ void TenZillaMainScreen_ui_create(lv_obj_t** out_screen, TenZillaMainScreenUI* o
   lv_obj_align(labelWrk, LV_ALIGN_LEFT_MID, TILE_STYLE.labelOffsetLeft, 0);
   
   out_ui->labelWorkingDisplacement = lv_label_create(containerWrk);
-  lv_label_set_text(out_ui->labelWorkingDisplacement, "0.0");
+  lv_label_set_text(out_ui->labelWorkingDisplacement, "0.0 mm");
   lv_obj_set_style_text_color(out_ui->labelWorkingDisplacement, lv_color_hex(0xFF00FF), 0);
   lv_obj_set_style_text_font(out_ui->labelWorkingDisplacement, _F30, 0);
   lv_obj_set_style_text_letter_space(out_ui->labelWorkingDisplacement, 1, 0);
@@ -217,7 +217,7 @@ void TenZillaMainScreen_ui_create(lv_obj_t** out_screen, TenZillaMainScreenUI* o
   lv_obj_align(labelMov, LV_ALIGN_LEFT_MID, TILE_STYLE.labelOffsetLeft, 0);
   
   out_ui->labelDisplacement = lv_label_create(containerMov);
-  lv_label_set_text(out_ui->labelDisplacement, "0");
+  lv_label_set_text(out_ui->labelDisplacement, "0.0 mm");
   lv_obj_set_style_text_color(out_ui->labelDisplacement, lv_color_hex(0x00FFFF), 0);
   lv_obj_set_style_text_font(out_ui->labelDisplacement, _F30, 0);
   lv_obj_set_style_text_letter_space(out_ui->labelDisplacement, 1, 0);

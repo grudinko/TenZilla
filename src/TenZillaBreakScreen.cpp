@@ -107,7 +107,7 @@ void TenZillaBreakScreen::updateLVGL(lv_obj_t* screen, float currentWeight, floa
   // Обновляем рабочее перемещение (WRK) только при изменении
   if (s_ui.labelWorkingDisplacement != nullptr) {
     if (fabs(workingDisplacement - lastWorkingDisplacement) >= 0.1f) {
-      snprintf(buffer, sizeof(buffer), "%.1f", workingDisplacement);
+      snprintf(buffer, sizeof(buffer), "%.1f mm", workingDisplacement);
       lv_label_set_text(s_ui.labelWorkingDisplacement, buffer);
       lastWorkingDisplacement = workingDisplacement;
     }
@@ -115,7 +115,7 @@ void TenZillaBreakScreen::updateLVGL(lv_obj_t* screen, float currentWeight, floa
   
   // Обновляем абсолютное перемещение (MOV) только при изменении
   if (fabs(absoluteDisplacement - lastAbsoluteDisplacement) >= 0.1f) {
-    snprintf(buffer, sizeof(buffer), "%.1f", absoluteDisplacement);
+    snprintf(buffer, sizeof(buffer), "%.1f mm", absoluteDisplacement);
     lv_label_set_text(s_ui.labelDisplacement, buffer);
     lastAbsoluteDisplacement = absoluteDisplacement;
   }

@@ -204,7 +204,7 @@ void TenZillaMainScreen::updateLVGL(lv_obj_t* screen, float currentWeight, float
   if (s_ui.labelWorkingDisplacement != nullptr) {
     static float lastWorkingDisplacement = -9999.0f;
     if (fabs(workingDisplacement - lastWorkingDisplacement) >= 0.1f) {
-      snprintf(buffer, sizeof(buffer), "%.1f", workingDisplacement);
+      snprintf(buffer, sizeof(buffer), "%.1f mm", workingDisplacement);
       lv_label_set_text(s_ui.labelWorkingDisplacement, buffer);
       lastWorkingDisplacement = workingDisplacement;
     }
@@ -214,7 +214,7 @@ void TenZillaMainScreen::updateLVGL(lv_obj_t* screen, float currentWeight, float
   if (s_ui.labelDisplacement != nullptr) {
     static float lastAbsoluteDisplacement = -9999.0f;
     if (fabs(absoluteDisplacement - lastAbsoluteDisplacement) >= 0.1f) {
-      snprintf(buffer, sizeof(buffer), "%.1f", absoluteDisplacement);
+      snprintf(buffer, sizeof(buffer), "%.1f mm", absoluteDisplacement);
       lv_label_set_text(s_ui.labelDisplacement, buffer);
       lastAbsoluteDisplacement = absoluteDisplacement;
     }

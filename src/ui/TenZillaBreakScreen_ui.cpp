@@ -32,11 +32,11 @@ void TenZillaBreakScreen_ui_create(lv_obj_t** out_screen, TenZillaBreakScreenUI*
   #define _LIM   "LIM:"
   #define _HINT  "Hold 2s for menu"
 
-  // Заголовок окна - увеличен и полужирный эффект через больший размер (левый угол)
+  // Заголовок окна — крупный шрифт, алый
   lv_obj_t* title = lv_label_create(screen);
   lv_label_set_text(title, _TITLE);
-  lv_obj_set_style_text_color(title, lv_color_hex(0xFF8800), 0);
-  lv_obj_set_style_text_font(title, _F22, 0);
+  lv_obj_set_style_text_color(title, lv_color_hex(0xFF1744), 0);
+  lv_obj_set_style_text_font(title, _F30, 0);
   lv_obj_set_style_text_letter_space(title, 1, 0);
   lv_obj_align(title, LV_ALIGN_TOP_LEFT, 10, 10);
 
@@ -177,7 +177,7 @@ void TenZillaBreakScreen_ui_create(lv_obj_t** out_screen, TenZillaBreakScreenUI*
   lv_obj_align(labelWrk, LV_ALIGN_LEFT_MID, -10, 0);  // Прижато к левому краю рамки
   
   lv_obj_t* labelWorkingDisplacement = lv_label_create(containerWrk);
-  lv_label_set_text(labelWorkingDisplacement, "0.0");
+  lv_label_set_text(labelWorkingDisplacement, "0.0 mm");
   lv_obj_set_style_text_color(labelWorkingDisplacement, lv_color_hex(0xFF00FF), 0);  // Пурпурный цвет
   lv_obj_set_style_text_font(labelWorkingDisplacement, _F30, 0);
   lv_obj_set_style_text_letter_space(labelWorkingDisplacement, 1, 0);
@@ -205,7 +205,7 @@ void TenZillaBreakScreen_ui_create(lv_obj_t** out_screen, TenZillaBreakScreenUI*
   lv_obj_align(labelMov, LV_ALIGN_LEFT_MID, -10, 0);  // Прижато к левому краю рамки
   
   lv_obj_t* labelDisplacement = lv_label_create(containerMov);
-  lv_label_set_text(labelDisplacement, "0.0");
+  lv_label_set_text(labelDisplacement, "0.0 mm");
   lv_obj_set_style_text_color(labelDisplacement, lv_color_hex(0x00FFFF), 0);  // Голубой цвет
   lv_obj_set_style_text_font(labelDisplacement, _F30, 0);
   lv_obj_set_style_text_letter_space(labelDisplacement, 1, 0);
